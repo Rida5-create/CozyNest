@@ -1,0 +1,577 @@
+/* CozyNest Home Decor - External Stylesheet */
+/* style.css */
+
+/* CSS Variables for Theme */
+:root {
+    --primary-bg: #FAF9F6; /* Off White */
+    --accent-soft: #F5F5DC; /* Beige */
+    --accent-cream: #FFFDD0; /* Cream */
+    --text-dark: #3E362E; /* Dark Brown/Charcoal */
+    --text-muted: #8E8A84;
+    --pastel-green: #E0F0E3;
+    --pastel-peach: #FCE4EC;
+    --tan: #D2B48C;
+    --transition: all 0.3s ease;
+    --border-radius: 12px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 100px 0;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(250, 249, 246, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--tan);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a:hover {
+    color: var(--tan);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.nav-btn {
+    background: none;
+    border: 1px solid var(--tan);
+    padding: 8px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--tan);
+    transition: var(--transition);
+}
+
+.nav-btn:hover {
+    background-color: var(--tan);
+    color: white;
+}
+
+/* Hero Section */
+#home {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('assets/images/hero.jpg') no-repeat center center/cover;
+    padding: 0;
+    margin-bottom: 50px;
+    opacity: 1;
+    transform: none;
+}
+
+.hero-content {
+    color: white;
+    max-width: 600px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--tan);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+/* About Section */
+#about {
+    background-color: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+/* Products Section */
+#products {
+    background-color: var(--accent-soft);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: var(--tan);
+    color: white;
+}
+
+.search-container {
+    max-width: 400px;
+    margin: 0 auto 40px;
+    position: relative;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 20px;
+    padding-right: 50px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    outline: none;
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 12px;
+    color: var(--text-muted);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    height: 300px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-image img {
+    scale: 1.05;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    color: var(--tan);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.add-cart-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-bg);
+    border: 1px solid var(--tan);
+    border-radius: 8px;
+    color: var(--tan);
+    font-weight: 600;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.add-cart-btn:hover {
+    background-color: var(--tan);
+    color: white;
+}
+
+/* Services Section */
+#services {
+    background-color: white;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.service-card {
+    padding: 40px;
+    background-color: var(--accent-cream);
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.service-card:hover {
+    background-color: var(--pastel-green);
+}
+
+.service-card i {
+    font-size: 3rem;
+    color: var(--tan);
+    margin-bottom: 20px;
+}
+
+/* Testimonials Section */
+#testimonials {
+    background-color: var(--accent-soft);
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.testimonial-card i {
+    color: var(--tan);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.testimonial-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    object-fit: cover;
+    border: 3px solid var(--accent-cream);
+}
+
+/* Newsletter Section */
+#newsletter {
+    background-color: var(--tan);
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+}
+
+.newsletter-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    max-width: 500px;
+    margin: 30px auto 0;
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 15px 25px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.newsletter-form button {
+    background-color: var(--text-dark);
+    color: white;
+    border: none;
+    padding: 0 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter-form button:hover {
+    background-color: #000;
+}
+
+/* Contact Section */
+#contact {
+    background-color: var(--primary-bg);
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.contact-form {
+    background: white;
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    outline: none;
+    background: #fafafa;
+}
+
+.submit-btn {
+    background-color: var(--tan);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-dark);
+    color: white;
+    padding: 80px 0 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+    color: var(--tan);
+}
+
+.footer-col h4 {
+    margin-bottom: 20px;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #555;
+    color: #888;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    animation: fadeInDown 0.4s ease-out;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.switch-auth {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.switch-auth span {
+    color: var(--tan);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .about-grid, .contact-container, .service-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-links {
+        display: none;
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
